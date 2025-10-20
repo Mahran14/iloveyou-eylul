@@ -13,6 +13,7 @@
       color: #fff;
       overflow-x: hidden;
       overflow-y: auto;
+      position: relative;
     }
 
     .section {
@@ -54,7 +55,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: 1;
+      z-index: 0;
       pointer-events: none;
     }
 
@@ -107,4 +108,28 @@
   <div class="section" id="turkish">
     <h1>Seni Seviyorum Sevgili Kızım Eylül</h1>
     <p>
-      Güzel kız arkadaşım, seni dünyadaki her şeyden çok seviyorum ve seninle gerçekten gurur duyuyorum. Hayatında yaptığın her şey için çok takdir ediyorum: spor salonu, çalışmaların ve çabaların. Asla geç kalmıyorsun; çok şey yapıyorsun ve yaptıklarını görüyorum ve hissediyorum. Devam et, artık yalnız değilsin; her zaman seni rahatsız eden ben varım. Bu, seni sevdiğimi ve ne olursa olsun seninle gurur duyduğu
+      Güzel kız arkadaşım, seni dünyadaki her şeyden çok seviyorum ve seninle gerçekten gurur duyuyorum. Hayatında yaptığın her şey için çok takdir ediyorum: spor salonu, çalışmaların ve çabaların. Asla geç kalmıyorsun; çok şey yapıyorsun ve yaptıklarını görüyorum ve hissediyorum. Devam et, artık yalnız değilsin; her zaman seni rahatsız eden ben varım. Bu, seni sevdiğimi ve ne olursa olsun seninle gurur duyduğumu hatırlatacak küçük bir mesaj. Her zaman zihninde ve kalbinde seninle olacağım; konuşmasak ve uzakta olsak bile yanındayım.
+    </p>
+  </div>
+
+  <script>
+    const hearts = document.getElementById('hearts');
+    const emojis = ['❤️','💖','💞','💘','💓','💕'];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+      heart.style.animationDuration = (6 + Math.random() * 5) + 's';
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 11000);
+    }
+
+    // تأكد إن القلوب بتتكرر كل 200ms
+    setInterval(createHeart, 200);
+  </script>
+
+</body>
+</html>
